@@ -76,9 +76,17 @@ Este sistema substitui anotações manuais e controle mental por uma plataforma 
    ```
 
 3. **Configure as variáveis de ambiente:**
-   O arquivo `.env` já vem pré-configurado para SQLite local:
+   Copie o arquivo de exemplo para `.env`:
+   ```bash
+   cp .env.example .env
+   # No Windows PowerShell: copy .env.example .env
+   ```
+   O arquivo já vem preparado com suporte a **PostgreSQL (Supabase)** e **SQLite Local**:
    ```env
-   DATABASE_URL="file:./dev.db"
+   # Para Supabase PostgreSQL (Padrão de Produção):
+   DATABASE_URL="postgresql://postgres.[PROJECT-REF]:[SENHA]@aws-0-[REGION].pooler.supabase.com:6543/postgres?pgbouncer=true"
+   DIRECT_URL="postgresql://postgres.[PROJECT-REF]:[SENHA]@aws-0-[REGION].pooler.supabase.com:5432/postgres"
+
    JWT_SECRET="gucar-autoletrica-pi2-univesp-secret-key-2026"
    NEXT_PUBLIC_APP_NAME="Autoelétrica GUCAR"
    ```
