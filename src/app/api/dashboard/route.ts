@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { PainelService } from '@/services/painel.service';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const dados = await PainelService.obterEstatisticas();
