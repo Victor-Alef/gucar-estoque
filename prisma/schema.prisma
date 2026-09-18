@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id            Int                   @id @default(autoincrement())
+  nome          String
+  email         String                @unique
+  senhaHash     String
+  cargo         String                @default("ADMIN")
+  criadoEm      DateTime              @default(now())
+  movimentacoes MovimentacaoEstoque[]
+
+  @@map("usuarios")
+}
+
+model Peca {
+  id                    Int                   @id @default(autoincrement())
+  codigoSku             String?
+  nome                  String
+  categoria             String
+  compatibilidade       String
+  localizacaoPrateleira String
+  quantidade            Int                   @default(0)
+  quantidadeMinima      Int                   @default(2)
+  precoCusto            Float                 @default(0.0)
+  precoVenda            Float                 @default(0.0)
+  ativo                 Boolean               @default(true)
+  criadoEm              DateTime              @default(now())
+  atualizadoEm          DateTime              @updatedAt
+  movimentacoes         MovimentacaoEstoque[]
+
+  @@map("pecas")
+}
+
+model MovimentacaoEstoque {
+  id            Int      @id @default(autoincrement())
+  pecaId        Int
+  usuarioId     Int?
+  tipo          String   // "ENTRADA" ou "SAIDA"
+  quantidade    Int
+  motivo        String   // "SERVICO_OS" (Aplicação em O.S.), "VENDA_BALCAO", "PERDA_DEFEITO", "COMPRA_REPOSICAO"
+  custoUnitario Float?   // Custo unitário registrado na entrada
+  observacoes   String?  // Opcional: Número da O.S., Fornecedor, Placa do Carro, etc.
+  criadoEm      DateTime @default(now())
+
+  peca          Peca     @relation(fields: [pecaId], references: [id], onDelete: Cascade)
+  usuario       Usuario? @relation(fields: [usuarioId], references: [id], onDelete: SetNull)
+
+  @@map("movimentacoes_estoque")
+}
