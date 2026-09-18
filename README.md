@@ -154,21 +154,3 @@ gucar-estoque/
 ├── package.json
 └── tsconfig.json
 ```
-
----
-
-## 🌐 Como Fazer Deploy na Nuvem (Para Avaliação Final)
-
-Para disponibilizar o sistema online para o orientador e para uso do Gustavo Martins no celular:
-
-1. **Banco de Dados PostgreSQL Gratuito:**
-   - Crie uma conta no [Supabase](https://supabase.com) ou [Neon](https://neon.tech).
-   - Copie a string de conexão PostgreSQL.
-   - No `prisma/schema.prisma`, altere o datasource de `sqlite` para `postgresql`.
-2. **Deploy na Vercel:**
-   - Suba o repositório para o GitHub.
-   - Conecte o repositório na [Vercel](https://vercel.com).
-   - Adicione as variáveis `DATABASE_URL` e `JWT_SECRET` nas configurações de ambiente da Vercel.
-   - O deploy ocorrerá em menos de 2 minutos gerando um link `.vercel.app`.
-
----
