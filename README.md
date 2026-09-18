@@ -9,7 +9,8 @@
 
 Aplicação web responsiva, rápida e mobile-first desenvolvida sob medida para a **Autoelétrica GUCAR** (Proprietário: Gustavo Martins), atendendo integralmente à Especificação de Requisitos de Software (ERS) da disciplina de **Projeto Integrador em Computação II** da Universidade Virtual do Estado de São Paulo (**UNIVESP**).
 
-> 📖 **Documentação Técnica Completa:** Para detalhes aprofundados sobre a arquitetura em camadas, fluxo de dados, Dicionário de Dados e Diagrama Entidade-Relacionamento (DER), consulte o arquivo [`DOCUMENTACAO.md`](./DOCUMENTACAO.md).
+> 📖 **Documentação Técnica Completa:** Consulte [`DOCUMENTACAO.md`](./DOCUMENTACAO.md).  
+> 🤝 **Guia de Contribuição da Equipe:** Consulte [`CONTRIBUTING.md`](./CONTRIBUTING.md) para saber como clonar, rodar localmente e abrir Pull Requests.
 
 ---
 
